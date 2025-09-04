@@ -224,7 +224,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🏆 **Hackathon Submission**
 
-**Syrotech MVP Hackathon 2025**  
 *Building high-impact web applications that drive positive change*
 
 ### **Submission Checklist**
