@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, Menu } from "lucide-react";
+import { BookOpen, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { useAccessibility } from "@/components/accessibility-provider";
