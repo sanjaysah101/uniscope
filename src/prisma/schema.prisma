@@ -1,0 +1,163 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  avatar    String?
+  bio       String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  posts        Post[]
+  reviews      Review[]
+  enrollments  Enrollment[]
+  comparisons  Comparison[]
+
+  @@map("users")
+}
+
+model University {
+  id          String  @id @default(cuid())
+  name        String
+  description String?
+  location    String
+  website     String?
+  logo        String?
+  
+  // Details
+  establishedYear Int?
+  type           String? // Public, Private, etc.
+  accreditation  String?
+  
+  // Contact & Social
+  email       String?
+  phone       String?
+  socialLinks Json? // Store social media links as JSON
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  courses     Course[]
+  reviews     Review[]
+  enrollments Enrollment[]
+  feeStructures FeeStructure[]
+
+  @@map("universities")
+}
+
+model Course {
+  id           String @id @default(cuid())
+  title        String
+  description  String?
+  duration     String? // "4 years", "2 semesters", etc.
+  level        String? // "Undergraduate", "Graduate", etc.
+  syllabus     String? // Detailed syllabus content
+  
+  universityId String
+  university   University @relation(fields: [universityId], references: [id], onDelete: Cascade)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  enrollments Enrollment[]
+  feeStructures FeeStructure[]
+
+  @@map("courses")
+}
+
+model FeeStructure {
+  id           String @id @default(cuid())
+  academicYear String
+  tuitionFee   Decimal
+  otherFees    Decimal?
+  totalFee     Decimal
+  currency     String @default("USD")
+  
+  universityId String
+  university   University @relation(fields: [universityId], references: [id], onDelete: Cascade)
+  
+  courseId     String?
+  course       Course? @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("fee_structures")
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  type      String   @default("post") // "post", "news", "blog", "note"
+  tags      String[] // Array of tags
+  likes     Int      @default(0)
+  
+  authorId  String
+  author    User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("posts")
+}
+
+model Review {
+  id       String @id @default(cuid())
+  rating   Int    // 1-5 stars
+  title    String
+  content  String
+  
+  userId       String
+  user         User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  universityId String
+  university   University @relation(fields: [universityId], references: [id], onDelete: Cascade)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("reviews")
+}
+
+model Enrollment {
+  id           String @id @default(cuid())
+  status       String @default("active") // "active", "completed", "dropped"
+  enrolledAt   DateTime @default(now())
+  
+  userId       String
+  user         User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  universityId String
+  university   University @relation(fields: [universityId], references: [id], onDelete: Cascade)
+  
+  courseId     String
+  course       Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@map("enrollments")
+}
+
+model Comparison {
+  id            String   @id @default(cuid())
+  name          String   // User-defined name for the comparison
+  universityIds String[] // Array of university IDs being compared
+  
+  userId        String
+  user          User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("comparisons")
+}
