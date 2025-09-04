@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://uniscope.vercel.app"),
+  metadataBase: new URL("https://uniscope-five.vercel.app/"),
   alternates: {
     canonical: "/",
   },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Uniscope - Your Complete Guide to Higher Education",
     description:
       "Compare universities, connect with students, and make informed educational decisions with AI-powered guidance",
-    url: "https://uniscope.vercel.app",
+    url: "https://uniscope-five.vercel.app/",
     siteName: "Uniscope",
     images: [
       {

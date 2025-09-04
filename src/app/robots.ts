@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/admin/"],
     },
-    sitemap: "https://uniscope.vercel.app/sitemap.xml",
+    sitemap: "https://uniscope-five.vercel.app//sitemap.xml",
   };
 }

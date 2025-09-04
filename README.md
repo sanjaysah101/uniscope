@@ -1,7 +1,7 @@
 # 🎓 Uniscope - Democratizing Educational Access
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://uniscope.vercel.app)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge)](https://github.com/yourusername/uniscope)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://uniscope-five.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge)](https://github.com/sanjaysah101/uniscope)
 
 ## 🌍 **The Problem We Solve**
 
@@ -106,7 +106,7 @@ Uniscope is a **comprehensive educational platform** that centralizes university
 
 # Clone the repository
 
-git clone <https://github.com/yourusername/uniscope.git>
+git clone <https://github.com/sanjaysah101/uniscope>
 cd uniscope
 
 # Install dependencies
@@ -238,10 +238,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 **Contact & Support**
 
-- **Demo**: [uniscope.vercel.app](https://uniscope.vercel.app)
-- **Repository**: [github.com/yourusername/uniscope](https://github.com/yourusername/uniscope)
-- **Email**: <team@uniscope.com>
-- **Twitter**: [@uniscope](https://twitter.com/uniscope)
+- **Demo**: [uniscope.vercel.app](https://uniscope-five.vercel.app/)
+- **Repository**: [github.com/sanjaysah101/uniscope](https://github.com/sanjaysah101/uniscope)
+- **Email**: <sanjay8797421521@gmail.com>
+- **Twitter**: [@*sanjaysah*](https://x.com/_sanjaysah)
 
 ---
 
